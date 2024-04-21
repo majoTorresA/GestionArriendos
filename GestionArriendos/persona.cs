@@ -126,6 +126,7 @@ namespace GestionArriendos
             Console.WriteLine("Factura de pago:");
             Console.WriteLine($"Fecha de pago: {FechaPago}");
             Console.WriteLine($"Monto pagado: {MontoMensual}");
+            Console.WriteLine("Pago exitoso");
         }
     }
 }
