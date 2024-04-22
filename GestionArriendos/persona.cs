@@ -42,6 +42,11 @@ namespace GestionArriendos
                 throw new ArgumentException("El contrato proporcionado no es válido.");
             }
         }
+
+        public static void AgregarArrendatario(List<Arrendatario> listaArrendatarios, Arrendatario arrendatario)
+        {
+            listaArrendatarios.Add(arrendatario);
+        }
     }
 
     public class Arrendador : Persona
@@ -55,6 +60,10 @@ namespace GestionArriendos
         public void AgregarPropiedad(string propiedad)
         {
             Propiedades.Add(propiedad);
+        }
+        public static void AgregarArrendador(List<Arrendador> listaArrendadores, Arrendador arrendador)
+        {
+            listaArrendadores.Add(arrendador);
         }
     }
 
@@ -134,16 +143,24 @@ namespace GestionArriendos
 
 // Ejemplo de implementacion :)))
 /*
- class Program
+class Program
 {
     static void Main(string[] args)
     {
+        // Crear listas para almacenar arrendatarios y arrendadores
+        var arrendatarios = new List<Arrendatario>();
+        var arrendadores = new List<Arrendador>();
+
         // Crear un arrendador y un arrendatario
         Arrendador arrendador = new Arrendador("Juan", "Calle Principal");
         Arrendatario arrendatario = new Arrendatario("Maria", "Calle Secundaria");
 
         // Agregar una propiedad al arrendador
         arrendador.AgregarPropiedad("Casa en la playa");
+
+        // Agregar arrendador y arrendatario a las listas
+        Arrendador.AgregarArrendador(arrendadores, arrendador);
+        Arrendatario.AgregarArrendatario(arrendatarios, arrendatario);
 
         // Crear un contrato de arrendamiento
         Contrato_Arrendamiento contrato = new Contrato_Arrendamiento(1000, 1, "Casa en la playa", DateTime.Now);
